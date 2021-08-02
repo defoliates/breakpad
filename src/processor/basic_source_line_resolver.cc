@@ -418,7 +418,7 @@ bool BasicSourceLineResolver::Module::ParseInlineOrigin(
   if (SymbolParseHelper::ParseInlineOrigin(inline_origin_line, &origin_id,
                                            &source_file_id, &origin_name)) {
     inline_origins_.insert(make_pair(
-        origin_id, new InlineOrigin(origin_id, source_file_id, origin_name)));
+        origin_id, linked_ptr<InlineOrigin>(new InlineOrigin(origin_id, source_file_id, origin_name))));
     return true;
   }
   return false;
