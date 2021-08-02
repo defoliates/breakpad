@@ -13,27 +13,12 @@ crash-reporting system.
 
 ## Getting started (from main)
 
-1.  First, [download depot_tools](http://dev.chromium.org/developers/how-tos/install-depot-tools)
-    and ensure that they’re in your `PATH`.
+1.  First, clone the code.   
 
-2.  Create a new directory for checking out the source code (it must be named
-    breakpad).
+2.  Build the source,option using c++14 option.
 
     ```sh
-    mkdir breakpad && cd breakpad
-    ```
-
-3.  Run the `fetch` tool from depot_tools to download all the source repos.
-
-    ```sh
-    fetch breakpad
-    cd src
-    ```
-
-4.  Build the source.
-
-    ```sh
-    ./configure && make
+    ./configure CXXFLAGS=-std=c++14 && make
     ```
 
     You can also cd to another directory and run configure from there to build
@@ -45,13 +30,13 @@ crash-reporting system.
     (`src/tools/linux/dump_syms/dump_syms`,
     `src/tools/linux/md2core/minidump-2-core`, etc).
 
-5.  Optionally, run tests.
+3.  Optionally, run tests.
 
     ```sh
     make check
     ```
 
-6.  Optionally, install the built libraries
+4.  Optionally, install the built libraries
 
     ```sh
     make install
